@@ -30,3 +30,24 @@ Googled <span> tag, and it says "A <span> element which is used to color a part 
 **Second Steps**
 Honestly should have been my first step... I wanted to look at some of the biggest websites that would most likely have some good references, so I went to "https://www.apple.com/" and inspected the element to see which semantics they use for their website
     I wanted to run down the index.html page (from our HW) in chronological order, and the first <div> tag I ran into is the div tag listing the navigation links (ex. Search Engine Optimization, Online Reputation Management) and looked at Apple and saw that they used <nav> tags, so I replaced the <div> tags in the HTML file with the <nav> tag (ex. header div ul-->header nav ul)
+I compared Apple's navigation bar to see if they also used the <ul> tag for their links and they did, so I left the <ul> and <li> tags alone.
+
+Next <div> tag that I looked at was for the class "hero"
+    I referenced "https://www.w3schools.com/html/html5_semantic_elements.asp" and wanted to find a tag that would be more specific to an image that they show, and I found that the <figure> tag fit the description (Specifies self-contained content, like illustrations, diagrams, photos, code listings, etc.)
+        So I replaced the .hero selector in CSS with the figure selector, and replaced the <div class="hero"> tag with a simple <figure> tag.
+            I also noticed in the w3schools link that there is a <figcaption> tag which I realized could be useful for accessibility needs, so I added this tag within the <figure> tag.
+
+Next <div> tag that I looked at was for the class "content", and wanted to find a tag that would be more specific to this box of information filled with text. I found that the <main> tag was most appropriate for this. So I replaced the opening and closing "content" <div> tags in HTML with <main> tags, and replaced the ".content" selector with a "main" selector.
+
+Rinse and repeat--
+    I replaced the <div> tag for the class "search-engine-optimization" with a <section> tag since it better fit the purpose of this section in my HTML file and replaced all <div> tags within the <main> tab for <section> tags.
+        I tried to figure out how to group all <section> tags under the <main> tag since all section selectors in CSS have the same rules (ex. .search-engine-optimization, .online-reputation-management, .social-media-marketing all have the same rules) so I changed all the tags to the same name in HTML to "bluebox" and replaced the first selector in CSS from .search-engine-optimization to .bluebox and deleted the extras (all oline-reputation-management and .social-media-marketing since they all had the same rules apply).
+            I used the same concept for the .search-engine-optimization img and replaced it with .bluebox img and deleted the extras (.online-reputation-optimization img and .social-media-marketing img).
+   
+    Also replaced the <div> tags for "benefits" with <aside> tags:
+        (The <aside> tag defines some content aside from the content it is placed in.
+        The aside content should be indirectly related to the surrounding content.
+        Tip: The <aside> content is often placed as a sidebar in a document.)
+    Used the same concept as above with the .bluebox class and did the same for the benefits class, as it also followed all of the same rules in CSS.
+
+Last but not least, replaced "footer" <div> tags with the <footer> element, and also deleted the . from .footer and .footer h2 in the CSS file.
