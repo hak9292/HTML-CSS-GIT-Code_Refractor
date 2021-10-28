@@ -2,7 +2,7 @@ No idea what I'm supposed to do so:
 
 Google accessibility html
 W3C-Web Accessibility Initiative (WAI)
-    nope (seems a bit advanced)
+    nope (seems a bit too advanced for us)
 
 Google: "accessibility elements html"
 https://developer.mozilla.org/en-US/docs/Learn/Accessibility/HTML
@@ -36,10 +36,12 @@ Next <div> tag that I looked at was for the class "hero"
     I referenced "https://www.w3schools.com/html/html5_semantic_elements.asp" and wanted to find a tag that would be more specific to an image that they show, and I found that the <figure> tag fit the description (Specifies self-contained content, like illustrations, diagrams, photos, code listings, etc.)
         So I replaced the .hero selector in CSS with the figure selector, and replaced the <div class="hero"> tag with a simple <figure> tag.
             I also noticed in the w3schools link that there is a <figcaption> tag which I realized could be useful for accessibility needs, so I added this tag within the <figure> tag.
+                **update**
+                Errr the <figcaption> tag was actually not what I expected, it showed in text at the top left corner of the image... So I edited it out for now
 
 Next <div> tag that I looked at was for the class "content", and wanted to find a tag that would be more specific to this box of information filled with text. I found that the <main> tag was most appropriate for this. So I replaced the opening and closing "content" <div> tags in HTML with <main> tags, and replaced the ".content" selector with a "main" selector.
 
-Rinse and repeat--
+**Rinse and repeat--**
     I replaced the <div> tag for the class "search-engine-optimization" with a <section> tag since it better fit the purpose of this section in my HTML file and replaced all <div> tags within the <main> tab for <section> tags.
         I tried to figure out how to group all <section> tags under the <main> tag since all section selectors in CSS have the same rules (ex. .search-engine-optimization, .online-reputation-management, .social-media-marketing all have the same rules) so I changed all the tags to the same name in HTML to "bluebox" and replaced the first selector in CSS from .search-engine-optimization to .bluebox and deleted the extras (all oline-reputation-management and .social-media-marketing since they all had the same rules apply).
             I used the same concept for the .search-engine-optimization img and replaced it with .bluebox img and deleted the extras (.online-reputation-optimization img and .social-media-marketing img).

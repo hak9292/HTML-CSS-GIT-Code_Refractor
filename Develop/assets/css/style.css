@@ -24,6 +24,7 @@ header h1 .seo {
     color: #d9dcd6;
 }
 
+/* Removed the header tag before the nav tag since I am not expecting there to be a second navigation section */
 nav {
     padding-top: 15px;
     margin-right: 20px;
