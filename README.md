@@ -61,7 +61,8 @@ I updated the repo directory to replace the original README.md file with this "n
 Also adding the screenshot and deployable link at the bottom!
 **
 
-![screenshot](./screenshot.png)
+![screenshot](./assets/screenshot.png)
+![screenshot](./assets/screenshot2.png)
 
 https://hak9292.github.io/HTML-CSS-GIT-Code_Refractor/
 
