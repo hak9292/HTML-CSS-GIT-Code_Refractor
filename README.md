@@ -1,120 +1,69 @@
-# 01 HTML, CSS, and Git: Code Refactor
+Step-by-step though process behind the work:
 
-## Your Task
+No idea what I'm supposed to do so:
 
-Be sure to review the [Homework Guide](./Homework-Guide/README.md) before you start working on this assignment! This week is an odd-numbered week, so your homework is an on-the-job ticket&mdash;meaning that you'll begin with starter code that you need to modify. 
+Google accessibility html
+W3C-Web Accessibility Initiative (WAI)
+    nope (seems a bit too advanced for us)
 
-**Refactoring** existing code (improving it without changing what it does) to meet a certain set of standards or to implement a new technology is a common task for front-end and junior developers. For this particular homework assignment, a marketing agency has hired you to refactor an existing site to make it more accessible. 
+Google: "accessibility elements html"
+https://developer.mozilla.org/en-US/docs/Learn/Accessibility/HTML
+    ***Using SEMANTICS is important!!!***
+    ex. <div>Play video</div>
+        vs.
+        <button>Play video</button>
+        Screen reader?...
 
-> **Important**: When working with someone else's code, you should adhere to the **Scout Rule**&mdash;always leave the code a little cleaner than when you found it.
+ChromeVox
+    Ctrl + Alt + z (Shortcut if using the chrome extension)
+    Messed around with it and every section that I hovered my mouse over would tell me what part of the page I was pointing at--I could see it being very useful for those who are visually impaired
 
-An increasingly important consideration for businesses, web **accessibility** ensures that people with disabilities can access a website using assistive technologies like video captions, screen readers, and braille keyboards. Accessibility is good for business&mdash;for one thing, accessible sites rank higher in search engines like Google. It also helps companies avoid litigation, which might arise if people with disabilities can't access a website.
+HTML Role attribute--describes the role of an element in programs that can make use of it, such as screen readers or magnifiers.
+Usage Example:
+    <a href="#" role="button">Button Link</a>
 
-Accessibility can include complex requirements, but your tech lead has given you a small list of specific criteria for this project. These criteria are documented in the Acceptance Criteria section.
+**First Steps**
+Taking a first look, header class should be its own tag, so I cmd + / the <div class="header"> opening and closing tags and inserted my own header tags where the header class used to be.
+I then went over to the style.css file and removed the "." in front of all the .header selectors and the page remained the same (***Began to understand more clearly what they wanted from this assignment--you have to make it more "accessible" in the sense that the semantics have to be better (more specific) while the page remains the same visually, so by the time you replace a lot of the tags in HTML 
 
-To impress clients, you should always exceed expectations and improve the codebase for long-term sustainability. For example, check that all links are functioning correctly. You can also increase the efficiency of the CSS by consolidating the selectors and properties, organizing them to follow the semantic structure of the HTML elements, and including comments before each element or section of the page.
+Googled <span> tag, and it says "A <span> element which is used to color a part of a text:
+    So I realized that the "seo" in Horiseon wasn't separated for no reason
 
-Are you ready to begin? Here are this week's homework requirements.
+**Second Steps**
+Honestly should have been my first step... I wanted to look at some of the biggest websites that would most likely have some good references, so I went to "https://www.apple.com/" and inspected the element to see which semantics they use for their website
+    I wanted to run down the index.html page (from our HW) in chronological order, and the first <div> tag I ran into is the div tag listing the navigation links (ex. Search Engine Optimization, Online Reputation Management) and looked at Apple and saw that they used <nav> tags, so I replaced the <div> tags in the HTML file with the <nav> tag (ex. header div ul-->header nav ul)
+I compared Apple's navigation bar to see if they also used the <ul> tag for their links and they did, so I left the <ul> and <li> tags alone.
 
-## User Story
+Next <div> tag that I looked at was for the class "hero"
+    I referenced "https://www.w3schools.com/html/html5_semantic_elements.asp" and wanted to find a tag that would be more specific to an image that they show, and I found that the <figure> tag fit the description (Specifies self-contained content, like illustrations, diagrams, photos, code listings, etc.)
+        So I replaced the .hero selector in CSS with the figure selector, and replaced the <div class="hero"> tag with a simple <figure> tag.
+            I also noticed in the w3schools link that there is a <figcaption> tag which I realized could be useful for accessibility needs, so I added this tag within the <figure> tag.
+                **update**
+                Errr the <figcaption> tag was actually not what I expected, it showed in text at the top left corner of the image... So I edited it out for now
 
-```
-AS A marketing agency
-I WANT a codebase that follows accessibility standards
-SO THAT our own site is optimized for search engines
-```
+Next <div> tag that I looked at was for the class "content", and wanted to find a tag that would be more specific to this box of information filled with text. I found that the <main> tag was most appropriate for this. So I replaced the opening and closing "content" <div> tags in HTML with <main> tags, and replaced the ".content" selector with a "main" selector.
 
-## Acceptance Criteria
+**Rinse and repeat--**
+    I replaced the <div> tag for the class "search-engine-optimization" with a <section> tag since it better fit the purpose of this section in my HTML file and replaced all <div> tags within the <main> tab for <section> tags.
+        I tried to figure out how to group all <section> tags under the <main> tag since all section selectors in CSS have the same rules (ex. .search-engine-optimization, .online-reputation-management, .social-media-marketing all have the same rules) so I changed all the tags to the same name in HTML to "bluebox" and replaced the first selector in CSS from .search-engine-optimization to .bluebox and deleted the extras (all oline-reputation-management and .social-media-marketing since they all had the same rules apply).
+            I used the same concept for the .search-engine-optimization img and replaced it with .bluebox img and deleted the extras (.online-reputation-optimization img and .social-media-marketing img).
+   
+    Also replaced the <div> tags for "benefits" with <aside> tags:
+        (The <aside> tag defines some content aside from the content it is placed in.
+        The aside content should be indirectly related to the surrounding content.
+        Tip: The <aside> content is often placed as a sidebar in a document.)
+    Used the same concept as above with the .bluebox class and did the same for the benefits class, as it also followed all of the same rules in CSS.
 
-```
-GIVEN a webpage meets accessibility standards
-WHEN I view the source code
-THEN I find semantic HTML elements
-WHEN I view the structure of the HTML elements
-THEN I find that the elements follow a logical structure independent of styling and positioning
-WHEN I view the icon and image elements
-THEN I find accessible alt attributes
-WHEN I view the heading attributes
-THEN they fall in sequential order
-WHEN I view the title element
-THEN I find a concise, descriptive title
-```
+Last but not least, replaced "footer" <div> tags with the <footer> element, and also deleted the . from .footer and .footer h2 in the CSS file.
 
-## Mock-Up
+**
+I updated the repo directory to replace the original README.md file with this "notes.md" file.
+Also adding the screenshot and deployable link at the bottom!
+**
 
-The following image shows the web application's appearance and functionality:
+![screenshot](/HTML-CSS-GIT-Code_Refractor/screenshot.png)
 
-![The Horiseon webpage includes a navigation bar, a header image, and cards with text and images at the bottom of the page.](./Assets/01-html-css-git-homework-demo.png)
+https://hak9292.github.io/HTML-CSS-GIT-Code_Refractor/
 
-> **Note**: This layout is designed for desktop viewing, so you may notice that some of the elements don't look like the mock-up at a resolution smaller than 768px. Eventually you'll learn how to make elements responsive so that your web application is optimized for any screen size.
 
-## Getting Started
 
-Follow these instructions to create your project and deploy it to GitHub Pages:
-
-1. Create a new repository on your GitHub account and clone it to your computer.
-
-2. When you're ready to deploy, use the `git add`, `git commit`, and `git push` commands to save and push your code to your GitHub repository.
-
-3. Navigate to your GitHub repository in the browser and then select the Settings tab on the right side of the page.
-
-4. On the Settings page, scroll down to the GitHub Pages section. Then, in the section labeled Source, select the `main` branch as your source.
-
-5. Navigate to <your-github-username.github.io/your-repository-name> and you will find that your new webpage has gone live! For example, if your GitHub username is "lernantino" and the project is "css-demo-site", then your URL would be <lernantino.github.io/css-demo-site>.
-
-You can also refer to this [YouTube video on enabling GitHub Pages](https://youtu.be/P4Mu1t5rIXg) for more guidance.
-
-> **Important**: It might take a few minutes for GitHub pages to display your site correctly. If your project does not deploy or display correctly, check that all file paths in your application are relative and use the right casing. GitHub is case-sensitive, an inccorect capital or lowercase letter could cause problems in deployment.
-
-Be sure to add, commit, and push your work to see the most up-to-date version of your app!
-
-## Grading Requirements
-
-This homework is graded based on the following criteria: 
-
-### Technical Acceptance Criteria: 40%
-
-* Satisfies all of the preceding acceptance criteria plus the following code improvements:
-
-  * Application's links all function correctly.
-
-  * Application's CSS selectors and properties are consolidated and organized to follow semantic structure.
-
-  * Application's CSS file is properly commented.
-
-### Deployment: 32%
-
-* Application deployed at live URL.
-
-* Application loads with no errors.
-
-* Application GitHub URL submitted.
-
-* GitHub repository contains application code.
-
-### Application Quality: 15%
-
-* Application resembles mock-up provided in the homework instructions (at least 90%).
-
-### Repository Quality: 13%
-
-* Repository has a unique name.
-
-* Repository follows best practices for file structure and naming conventions.
-
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-
-* Repository contains multiple descriptive commit messages.
-
-* Repository contains quality README file with description, screenshot, and link to deployed application.
-
-## Review
-
-You are required to submit the following for review:
-
-* The URL of the deployed application.
-
-* The URL of the GitHub repository, with a unique name and a README that describes the project.
-
----
-© 2021 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
